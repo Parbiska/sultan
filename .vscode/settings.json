@@ -1,0 +1,14 @@
+{
+    // Форматирование кода с помощью prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+    // Форматирование при сохранении файла
+    "editor.formatOnSave": true,
+
+    // Использование локальных правил для StyleLint
+    "stylelint.useLocal": true,
+    "stylelint.autoFixOnSave": true,
+
+    "stylelint.snippet": ["css", "less", "postcss", "scss"],
+    "stylelint.validate": ["css", "less", "postcss", "scss"]
+}

@@ -1,0 +1,240 @@
+{
+    "1": {
+        "name": "shop Wake up Крем для лица, увлажняющий",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-x/wc700/6509472897.jpg",
+        "size": {
+            "type": "мл",
+            "value": 100
+        },
+        "barcode": 12345,
+        "company": "Organic",
+        "brand": "Organic Kitchen",
+        "description": "Крем - увлажнение поможет справиться с сезонными трудностями, восстановить красоту и здоровье Вашей кожи. Свежий белый виноград дарит коже молодость и длительное увлажнение. Органический камчатский подснежник буквально пробуждает уставшую кожу, наполняет энергией и дарит сияние.",
+        "price": 142,
+        "careType": ["лицо"]
+    },
+    "2": {
+        "name": "Professional Крем для лица суперувлажнение",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-8/wc700/6463926104.jpg",
+        "size": {
+            "type": "мл",
+            "value": 150
+        },
+        "barcode": 12346,
+        "company": "ARAVIA",
+        "brand": "ARAVIA Professional",
+        "description": "Лёгкий, быстро впитывающийся крем с мочевиной 10% для ежедневного ухода за кожей лица. Предназначен для обезвоженной кожи всех типов, включая комбинированную и жирную. Мочевина помогает связывать молекулы воды и удерживать их в роговом слое, сохраняя увлажненность кожи на длительное время. ",
+        "price": 630,
+        "careType": ["лицо"]
+    },
+    "3": {
+        "name": "Organic Увлажняющий укрепляющий крем для тела Vitality SPA",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-c/wc700/6440220900.jpg",
+        "size": {
+            "type": "мл",
+            "value": 300
+        },
+        "barcode": 12347,
+        "company": "ARAVIA",
+        "brand": "ARAVIA Organic",
+        "description": "Увлажняющий укрепляющий крем интенсивно увлажняет и питает кожу тела, восстанавливает защитный барьер, повышает её упругость и эластичность, предохраняет от возрастных изменений. Высокоактивный состав с натуральными растительными маслами, гелем алоэ и зелёным чаем обогащает кожу микроэлементами, поддерживает естественный гидролипидный баланс, повышает способность кожи удерживать влагу.",
+        "price": 705,
+        "careType": ["тело"]
+    },
+    "4": {
+        "name": "Натуральный крем для рук и тела Пачули и ароматный бергамот",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-5/wc700/6482205749.jpg",
+        "size": {
+            "type": "мл",
+            "value": 380
+        },
+        "barcode": 12348,
+        "company": "SYNERGETIC",
+        "brand": "SYNERGETIC",
+        "description": "Натуральный крем для рук и тела SYNERGETIC \"Пачули и ароматный бергамот\" обеспечивает интенсивное питание и дарит коже нежность и ощущение комфорта. Активные компоненты крема в сочетании с изомератом сахарида обеспечивают сохранение влаги в коже, обладают регенерирующим действием и восстанавливают барьерные функции кожи.",
+        "price": 249,
+        "careType": ["руки", "тело"]
+    },
+    "5": {
+        "name": "СуперУвлажняющий крем для стоп",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-0/wc700/6071041536.jpg",
+        "size": {
+            "type": "мл",
+            "value": 340
+        },
+        "barcode": 12349,
+        "company": "Milv",
+        "brand": "Milv",
+        "description": "Препятствует сухости, уплотнению ороговевшего слоя, растрескиванию кожи на пятках. После педикюра успокаивает, снижает ощущение стянутости и дискомфорта, смягчает, восстанавливает гладкость и эластичность кожи.",
+        "price": 293,
+        "careType": ["ноги"]
+    },
+    "6": {
+        "name": "Lorem Ipsum",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "гр",
+            "value": 700
+        },
+        "barcode": 12350,
+        "company": "Company",
+        "brand": "Brand",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 1234,
+        "careType": ["тело", "лицо", "руки", "ноги"]
+    },
+    "7": {
+        "name": "Бальзам для рук",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "гр",
+            "value": 900
+        },
+        "barcode": 12351,
+        "company": "Flexitol",
+        "brand": "Flexitol",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 3452,
+        "careType": ["тело", "ноги"]
+    },
+    "8": {
+        "name": "Крем",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "мл",
+            "value": 600
+        },
+        "barcode": 12352,
+        "company": "Flexitol",
+        "brand": "Flexitol2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 7689,
+        "careType": ["тело", "лицо"]
+    },
+    "9": {
+        "name": "Бальзам",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "мл",
+            "value": 367
+        },
+        "barcode": 12353,
+        "company": "Company",
+        "brand": "Brand",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 5234,
+        "careType": ["ноги"]
+    },
+    "10": {
+        "name": "Гель",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "гр",
+            "value": 709
+        },
+        "barcode": 12354,
+        "company": "Company2",
+        "brand": "Brand2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 3754,
+        "careType": ["тело", "лицо"]
+    },
+    "11": {
+        "name": "Лосьон для тела",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "мл",
+            "value": 70
+        },
+        "barcode": 12355,
+        "company": "Company",
+        "brand": "Brand",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 5867,
+        "careType": [ "руки"]
+    },
+    "12": {
+        "name": "Гель для волос",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "мл",
+            "value": 250
+        },
+        "barcode": 12356,
+        "company": "Nivea",
+        "brand": "Nivea man",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 6534,
+        "careType": ["лицо"]
+    },
+    "13": {
+        "name": "Маска для лица",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "гр",
+            "value": 300
+        },
+        "barcode": 12357,
+        "company": "Lorem",
+        "brand": "Lorem ipsum",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 9678,
+        "careType": ["лицо"]
+    },
+    "14": {
+        "name": "Мазь для рук",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "мл",
+            "value": 600
+        },
+        "barcode": 12358,
+        "company": "Lorem",
+        "brand": "Lorem ipsum",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 7455,
+        "careType": ["руки"]
+    },
+    "15": {
+        "name": "Масло для тела",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "гр",
+            "value": 600
+        },
+        "barcode": 12359,
+        "company": "Lorem1",
+        "brand": "Lorem1 ipsum",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 5432,
+        "careType": ["тело"]
+    },
+    "16": {
+        "name": "Product 16",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "мл",
+            "value": 800
+        },
+        "barcode": 12360,
+        "company": "Company Y",
+        "brand": "Brand3",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 70,
+        "careType": ["тело", "руки"]
+    },
+    "17": {
+        "name": "мазь",
+        "imgUrl": "https://ir.ozone.ru/s3/multimedia-b/wc700/6339198455.jpg",
+        "size": {
+            "type": "мл",
+            "value": 400
+        },
+        "barcode": 12361,
+        "company": "Company Y",
+        "brand": "Brand X",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
+        "price": 6143,
+        "careType": ["тело", "лицо", "руки", "ноги"]
+    }
+}

@@ -1,0 +1,50 @@
+@import './variables.scss';
+
+@mixin button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    background-color: $foo-main-color;
+    border: none;
+    border-radius: 50px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #f0c369;
+    }
+}
+
+@mixin baseInput {
+    box-sizing: border-box;
+    border: none;
+    border-radius: 36px;
+    outline: none;
+
+}
+
+
+
+@mixin searchInput {
+    @include baseInput;
+
+    padding: 13px 50px 13px 20px;
+    background: #EDEDED;
+}
+
+@mixin searchButton {
+    @include button;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 39px;
+    height: 39px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

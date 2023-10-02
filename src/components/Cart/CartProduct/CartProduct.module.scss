@@ -1,0 +1,121 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.product {
+    height: 191px;
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    &__img {
+        width: 281px;
+        height: 100%;
+        margin-right: 20px;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    &__description {
+        width: 480px;
+        margin-right: 85px;
+
+        &__weight {
+            display: flex;
+            align-items: center;
+
+            font-size: 12px;
+            font-weight: 400;
+            color: $foo-second-color;
+
+            svg {
+                margin-right: 8px;
+                opacity: 0.23;
+            }
+        }
+
+        &__title {
+            margin-top: 9px;
+            font-size: 30px;
+            font-weight: 700;
+            line-height: 36px;
+        }
+
+        &__text {
+            margin-top: 10px;
+
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 18px;
+            color: $foo-second-color;
+        }
+    }
+
+    &__purchase {
+        display: flex;
+
+        &__remove {
+            display: flex;
+            align-items: center;
+            margin-left: 42px;
+
+            button {
+                @include button;
+                width: 59px;
+                height: 59px;
+            }
+        }
+
+        &__quantity {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 113px;
+            height: 49px;
+            padding: 0 44px;
+
+            border-right: 1px dotted rgba($color: $foo-second-color, $alpha: 20%);
+            border-left: 1px dotted rgba($color: $foo-second-color, $alpha: 20%);
+
+            button {
+                width: 34px;
+                height: 23px;
+
+                font-size: 12px;
+                font-weight: 300;
+                line-height: 1.2;
+
+                background-color: rgba(255, 198, 80, 30%);
+                border: none;
+                border-radius: 100px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &:active {
+                    background-color: rgba(250, 181, 43, 30%);
+                }
+            }
+        }
+
+        &__price {
+            display: flex;
+            align-items: center;
+
+            margin-left: 44px;
+            padding-right: 44px;
+
+            font-size: 30px;
+            font-weight: 700;
+
+            border-right: 1px dotted rgba($color: $foo-second-color, $alpha: 20%);
+        }
+    }
+}

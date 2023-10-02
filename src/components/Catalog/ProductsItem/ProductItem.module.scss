@@ -1,0 +1,131 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+@keyframes appearance {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1.0;
+    }
+}
+
+.product {
+    position: relative;
+
+    box-sizing: border-box;
+    width: 326px;
+    height: 490px;
+    padding: 0 21px 0 23px;
+
+    border-radius: 10px;
+    box-shadow: 0 14px 39px -11px #0000000F;
+
+    animation: appearance 1s;
+
+    &:hover {
+        box-shadow: 0 14px 39px -11px #e2d8d8;
+    }
+
+    &__img {
+        height: 240px;
+
+        img {
+            display: block;
+            height: 100%;
+            margin: 0 auto;
+        }
+    }
+
+    &__weight {
+        display: flex;
+        align-items: center;
+
+        font-size: 12px;
+        font-weight: 400;
+        color: $foo-second-color;
+        letter-spacing: 0;
+
+        svg {
+            margin-right: 8px;
+        }
+    }
+
+    &__title {
+        margin-top: 10px;
+        font-weight: 500;
+        line-height: 1.2;
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    &__info {
+        margin-top: 10px;
+    }
+
+    &__purchase {
+        position: absolute;
+        bottom: 29px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 282px;
+
+        &__addToCart {
+            @include button;
+            width: 153px;
+            height: 45px;
+
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+
+            svg {
+                margin-left: 5px;
+            }
+        }
+
+        &__quantity {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 153px;
+
+            button {
+                width: 50px;
+                height: 45px;
+
+                font-size: 19px;
+                font-weight: 300;
+                line-height: 1.2;
+
+                background-color: rgba(255, 198, 80, 30%);
+                border: none;
+                border-radius: 100px;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: rgba(228, 167, 47, 30%);
+                }
+
+                &:active {
+                    background-color: rgba(250, 181, 43, 30%);
+                }
+            }
+        }
+
+        &__price {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 21px;
+
+        }
+    }
+}

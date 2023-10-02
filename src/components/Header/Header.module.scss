@@ -1,0 +1,239 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.header {
+    min-height: 170px;
+    padding-top: 14px;
+
+    &__info {
+        display: flex;
+        padding-bottom: 13px;
+        border-bottom: 1px solid rgba($foo-second-color, 0.2);
+    }
+
+    &__connection {
+        border-bottom: 1px solid rgba($foo-second-color, 0.2);
+
+        &__container {
+            display: flex;
+            align-items: center;
+            min-height: 108px;
+        }
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__contact {
+        display: flex;
+    }
+
+    &__element {
+        display: flex;
+        align-items: center;
+
+        &__img {
+            margin-right: 15px;
+        }
+
+        &__content {
+            font-size: 12px;
+            font-weight: 300;
+
+            span {
+                display: block;
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+
+        &:first-child {
+            margin-right: 40px;
+        }
+    }
+
+    &__navigation {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+
+        &__content {
+            display: flex;
+            list-style-type: none;
+        }
+
+        &__element {
+            padding: 0 30px;
+            border-right: 1px dashed rgba($foo-second-color, 0.1);
+
+            &:last-child {
+                padding-right: 0;
+                border-right: none;
+            }
+        }
+
+        &__link {
+            color: $foo-second-color;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__logo {
+        margin-right: 38px;
+    }
+
+    &__catalog {
+        margin-right: 15px;
+    }
+
+    &__button {
+        @include button;
+
+        width: 192px;
+        height: 59px;
+        padding: 10px 19px;
+
+        font-size: 14px;
+        font-weight: 700;
+
+        img {
+            margin-left: 12px;
+        }
+    }
+
+    &__search {
+        position: relative;
+        margin-right: 35px;
+
+        &__input {
+            @include searchInput;
+            width: 263px;
+            height: 59px;
+        }
+
+        &__button {
+            @include searchButton;
+        }
+    }
+
+    &__call {
+        display: flex;
+        align-items: center;
+        margin-right: 25px;
+
+        &__text {
+            margin-right: 14px;
+
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 150%;
+            color: $foo-second-color;
+            text-align: right;
+
+            span {
+                display: block;
+
+                margin-bottom: 5px;
+
+                font-size: 14px;
+                font-weight: 600;
+                color: #111;
+            }
+
+            a {
+                display: block;
+                font-size: 10px;
+                font-weight: 400;
+            }
+        }
+
+        &__img {
+            position: relative;
+
+        }
+
+        &__circle {
+            position: absolute;
+            top: 29px;
+            right: 6px;
+
+            width: 8px;
+            height: 8px;
+
+            background: #1FD85D;
+            border-radius: 10px;
+        }
+    }
+
+    &__price {
+        margin-right: 25px;
+        padding: 0 25px;
+        border-right: 1px dashed rgba($foo-second-color, 0.1);
+        border-left: 1px dashed rgba($foo-second-color, 0.1);
+    }
+
+    &__cart {
+        display: flex;
+        text-decoration: none;
+
+        &:hover {
+            cursor: pointer;
+
+            .header__cart__link {
+                text-decoration: underline;
+            }
+        }
+
+        &__img {
+            position: relative;
+            margin-right: 28px;
+        }
+
+        &__circle {
+            position: absolute;
+            z-index: 1;
+            top: -6px;
+            right: -11px;
+
+            padding: 0 0 2px 2px;
+
+            background-color: #fff;
+
+            span {
+                display: block;
+
+                width: 22px;
+                height: 22px;
+
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 22px;
+                color: #fff;
+                text-align: center;
+
+                background-color: $foo-main-color;
+                border-radius: 10px;
+            }
+        }
+
+        &__text {
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 150%;
+            color: $foo-second-color;
+
+            span {
+                display: block;
+                font-size: 14px;
+                font-weight: 600;
+                color: #111;
+            }
+        }
+    }
+}

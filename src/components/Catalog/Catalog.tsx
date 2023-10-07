@@ -4,9 +4,10 @@ import { SearchSelectors, requestProducts, setSearchSelectors } from '../../stor
 import Navigation from '../Navigaiton/Navigation';
 import { RootState } from '../../store/store';
 import ProductItem from './ProductsItem/ProductItem';
-import { Product } from '../../types/types';
-import { ProductWithQuantity, decrease, increase, addToCart } from '../../store/cartSlice';
+import { Product, ProductWithQuantity } from '../../types/types';
+import { decrease, increase, addToCart } from '../../store/cartSlice';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { toggleElementInArray } from '../../utils/helpers/arrayHelpers';
 
 type MapStateToProps = {
     products: Array<Product> | null;
@@ -22,7 +23,14 @@ type MapStateToProps = {
 
 type MapDispatchToProps = {
     requestProducts: any;
-    setSearchSelectors: (selectors: SearchSelectors) => void;
+    setSearchSelectors: (selectros: {
+        searchWords?: string;
+        minPrice?: number;
+        maxPrice?: number;
+        careType?: string;
+        companies?: string[];
+        brands?: string[];
+    }) => void;
     addToCart: (product: Product) => void;
     decrease: (barcode: number) => void;
     increase: (barcode: number) => void;
@@ -48,6 +56,15 @@ const Catalog: React.FC<Props> = ({
     const [sortMethod, setSortMethod] = useState<SortMethod>('name');
     const [orderSortMethod, setOrderSortMethod] = useState(true);
 
+    const [minPrice, setMinPrice] = useState<undefined | number>(undefined);
+    const [maxPrice, setMaxPrice] = useState<undefined | number>(undefined);
+
+    const [companyFilterSearch, setCompanyFilterSearch] = useState('');
+    const [brandFilterSearch, setBrandFilterSearch] = useState('');
+
+    let companyFilter: string[] = [];
+    let brandFilter: string[] = [];
+
     const brandsList: React.ReactElement[] = [];
     const companiesList: React.ReactElement[] = [];
 
@@ -60,8 +77,8 @@ const Catalog: React.FC<Props> = ({
     };
 
     useEffect(() => {
-        requestProducts();
-    }, [searchSelectors, requestProducts, setSearchSelectors]);
+        requestProducts(searchSelectors);
+    }, [searchSelectors, requestProducts]);
 
     if (products) {
         sortProducts = [...products];
@@ -115,38 +132,50 @@ const Catalog: React.FC<Props> = ({
 
     if (companies) {
         for (const company in companies) {
-            companiesList.push(
-                <li key={`c${company}`}>
-                    <input
-                        id={`company${company}`}
-                        type='checkbox'
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => {}}
-                    />
-                    <label htmlFor={`company${company}`}>
-                        {company + ' '}
-                        <span>({companies[company]})</span>
-                    </label>
-                </li>,
-            );
+            if (company.toLocaleLowerCase().includes(companyFilterSearch.toLocaleLowerCase())) {
+                companiesList.push(
+                    <li key={`c${company}`}>
+                        <input
+                            id={`company${company}`}
+                            type='checkbox'
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                toggleElementInArray(companyFilter, company);
+                            }}
+                        />
+                        <label htmlFor={`company${company}`}>
+                            {company + ' '}
+                            <span>({companies[company]})</span>
+                        </label>
+                    </li>,
+                );
+            }
         }
     }
 
     if (brands) {
         for (const brand in brands) {
-            brandsList.push(
-                <li key={`b${brand}`}>
-                    <input id={`brand${brand}`} type='checkbox' onChange={(e: ChangeEvent<HTMLInputElement>) => {}} />
-                    <label htmlFor={`brand${brand}`}>
-                        {brand + ' '}
-                        <span>({brands[brand]})</span>
-                    </label>
-                </li>,
-            );
+            if (brand.toLocaleLowerCase().includes(brandFilterSearch.toLocaleLowerCase())) {
+                brandsList.push(
+                    <li key={`b${brand}`}>
+                        <input
+                            id={`brand${brand}`}
+                            type='checkbox'
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                toggleElementInArray(brandFilter, brand);
+                            }}
+                        />
+                        <label htmlFor={`brand${brand}`}>
+                            {brand + ' '}
+                            <span>({brands[brand]})</span>
+                        </label>
+                    </li>,
+                );
+            }
         }
     }
 
     return (
-        <section className={s.catalog + ' container'}>
+        <section className={s.catalog}>
             <Navigation></Navigation>
             <div className={s.catalog__content}>
                 <div className={s.catalog__content__top}>
@@ -204,8 +233,21 @@ const Catalog: React.FC<Props> = ({
                         <div className={s.catalog__priceFilter}>
                             Цена <span>₸</span>
                             <div className={s.catalog__priceFilter__inputs}>
-                                <input type='number' placeholder='0' onChange={(e) => e} /> -{' '}
-                                <input type='number' placeholder='10000' />
+                                <input
+                                    value={minPrice}
+                                    type='number'
+                                    placeholder='0'
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => setMinPrice(+e.currentTarget.value)}
+                                />{' '}
+                                -{' '}
+                                <input
+                                    type='number'
+                                    placeholder='10000'
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                        console.log(+e.currentTarget.value);
+                                        setMaxPrice(+e.currentTarget.value > 0 ? +e.currentTarget.value : undefined);
+                                    }}
+                                />
                             </div>
                         </div>
 
@@ -214,29 +256,15 @@ const Catalog: React.FC<Props> = ({
                         </h3>
 
                         <div className={s.catalog__filter}>
-                            <form onSubmit={() => {}} className={s.catalog__filter__search}>
+                            <form className={s.catalog__filter__search}>
                                 <input
+                                    value={companyFilterSearch}
                                     type='text'
                                     placeholder='Поиск...'
-                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {}}
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                        setCompanyFilterSearch(e.currentTarget.value);
+                                    }}
                                 />
-
-                                <button>
-                                    <svg
-                                        width='19'
-                                        height='19'
-                                        viewBox='0 0 19 19'
-                                        fill='none'
-                                        xmlns='http://www.w3.org/2000/svg'
-                                    >
-                                        <path
-                                            d='M16.5297 16.5294L13.0992 13.0928L16.5297 16.5294ZM15.0002 8.5C15.0002 10.2239 14.3154 11.8772 13.0964 13.0962C11.8775 14.3152 10.2242 15 8.50024 15C6.77634 15 5.12304 14.3152 3.90405 13.0962C2.68506 11.8772 2.00024 10.2239 2.00024 8.5C2.00024 6.77609 2.68506 5.12279 3.90405 3.90381C5.12304 2.68482 6.77634 2 8.50024 2C10.2242 2 11.8775 2.68482 13.0964 3.90381C14.3154 5.12279 15.0002 6.77609 15.0002 8.5V8.5Z'
-                                            stroke='white'
-                                            strokeWidth='1.3'
-                                            strokeLinecap='round'
-                                        />
-                                    </svg>
-                                </button>
                             </form>
 
                             <ul className={s.catalog__filter__list}>{companiesList}</ul>
@@ -249,33 +277,65 @@ const Catalog: React.FC<Props> = ({
                         <div className={s.catalog__filter}>
                             <form onSubmit={() => {}} className={s.catalog__filter__search}>
                                 <input
+                                    value={brandFilterSearch}
                                     type='text'
                                     placeholder='Поиск...'
-                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {}}
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                        setBrandFilterSearch(e.currentTarget.value);
+                                    }}
                                 />
-
-                                <button>
-                                    <svg
-                                        width='19'
-                                        height='19'
-                                        viewBox='0 0 19 19'
-                                        fill='none'
-                                        xmlns='http://www.w3.org/2000/svg'
-                                    >
-                                        <path
-                                            d='M16.5297 16.5294L13.0992 13.0928L16.5297 16.5294ZM15.0002 8.5C15.0002 10.2239 14.3154 11.8772 13.0964 13.0962C11.8775 14.3152 10.2242 15 8.50024 15C6.77634 15 5.12304 14.3152 3.90405 13.0962C2.68506 11.8772 2.00024 10.2239 2.00024 8.5C2.00024 6.77609 2.68506 5.12279 3.90405 3.90381C5.12304 2.68482 6.77634 2 8.50024 2C10.2242 2 11.8775 2.68482 13.0964 3.90381C14.3154 5.12279 15.0002 6.77609 15.0002 8.5V8.5Z'
-                                            stroke='white'
-                                            strokeWidth='1.3'
-                                            strokeLinecap='round'
-                                        />
-                                    </svg>
-                                </button>
                             </form>
 
                             <ul className={s.catalog__filter__list}>{brandsList}</ul>
                         </div>
 
-                        <div className={s.catalog__showSearchResult}></div>
+                        <div className={s.catalog__showSearchResult}>
+                            <button
+                                onClick={() =>
+                                    setSearchSelectors({
+                                        minPrice,
+                                        maxPrice,
+                                        careType: '',
+                                        companies: companyFilter,
+                                        brands: brandFilter,
+                                    })
+                                }
+                                className={
+                                    s.catalog__showSearchResult__button + ' ' + s.catalog__showSearchResult__button_show
+                                }
+                            >
+                                Показать
+                            </button>
+                            <button
+                                onClick={() =>
+                                    setSearchSelectors({
+                                        minPrice: 0,
+                                        maxPrice: 0,
+                                        careType: '',
+                                        companies: [],
+                                        brands: [],
+                                    })
+                                }
+                                className={
+                                    s.catalog__showSearchResult__button +
+                                    ' ' +
+                                    s.catalog__showSearchResult__button_remove
+                                }
+                            >
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    width='25'
+                                    height='25'
+                                    viewBox='0 0 25 25'
+                                    fill='none'
+                                >
+                                    <path
+                                        d='M15.625 6.25H20.3125C20.5197 6.25 20.7184 6.33231 20.8649 6.47882C21.0114 6.62534 21.0938 6.82405 21.0938 7.03125C21.0938 7.23845 21.0114 7.43716 20.8649 7.58368C20.7184 7.73019 20.5197 7.8125 20.3125 7.8125H19.4484L18.2734 18.4C18.1673 19.3555 17.7125 20.2384 16.9961 20.8795C16.2797 21.5207 15.352 21.8751 14.3906 21.875H10.6094C9.64797 21.8751 8.72029 21.5207 8.00389 20.8795C7.28749 20.2384 6.8327 19.3555 6.72656 18.4L5.55 7.8125H4.6875C4.4803 7.8125 4.28159 7.73019 4.13507 7.58368C3.98856 7.43716 3.90625 7.23845 3.90625 7.03125C3.90625 6.82405 3.98856 6.62534 4.13507 6.47882C4.28159 6.33231 4.4803 6.25 4.6875 6.25H9.375C9.375 5.4212 9.70424 4.62634 10.2903 4.04029C10.8763 3.45424 11.6712 3.125 12.5 3.125C13.3288 3.125 14.1237 3.45424 14.7097 4.04029C15.2958 4.62634 15.625 5.4212 15.625 6.25ZM12.5 4.6875C12.0856 4.6875 11.6882 4.85212 11.3951 5.14515C11.1021 5.43817 10.9375 5.8356 10.9375 6.25H14.0625C14.0625 5.8356 13.8979 5.43817 13.6049 5.14515C13.3118 4.85212 12.9144 4.6875 12.5 4.6875ZM10.1562 10.9375V17.1875C10.1562 17.3947 10.2386 17.5934 10.3851 17.7399C10.5316 17.8864 10.7303 17.9688 10.9375 17.9688C11.1447 17.9688 11.3434 17.8864 11.4899 17.7399C11.6364 17.5934 11.7188 17.3947 11.7188 17.1875V10.9375C11.7188 10.7303 11.6364 10.5316 11.4899 10.3851C11.3434 10.2386 11.1447 10.1562 10.9375 10.1562C10.7303 10.1562 10.5316 10.2386 10.3851 10.3851C10.2386 10.5316 10.1562 10.7303 10.1562 10.9375ZM14.0625 10.1562C13.8553 10.1562 13.6566 10.2386 13.5101 10.3851C13.3636 10.5316 13.2812 10.7303 13.2812 10.9375V17.1875C13.2812 17.3947 13.3636 17.5934 13.5101 17.7399C13.6566 17.8864 13.8553 17.9688 14.0625 17.9688C14.2697 17.9688 14.4684 17.8864 14.6149 17.7399C14.7614 17.5934 14.8438 17.3947 14.8438 17.1875V10.9375C14.8438 10.7303 14.7614 10.5316 14.6149 10.3851C14.4684 10.2386 14.2697 10.1562 14.0625 10.1562Z'
+                                        fill='white'
+                                    />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     <div className={s.catalog__products}>{productsList}</div>
                 </div>

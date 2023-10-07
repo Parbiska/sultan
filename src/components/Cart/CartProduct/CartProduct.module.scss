@@ -80,8 +80,8 @@
             height: 49px;
             padding: 0 44px;
 
-            border-right: 1px dotted rgba($color: $foo-second-color, $alpha: 20%);
-            border-left: 1px dotted rgba($color: $foo-second-color, $alpha: 20%);
+            border-right: 1px dotted rgba($foo-second-color, 0.2);
+            border-left: 1px dotted rgba($foo-second-color, 0.2);
 
             button {
                 width: 34px;
@@ -90,6 +90,7 @@
                 font-size: 12px;
                 font-weight: 300;
                 line-height: 1.2;
+                color: #fff;
 
                 background-color: rgba(255, 198, 80, 30%);
                 border: none;
@@ -115,7 +116,7 @@
             font-size: 30px;
             font-weight: 700;
 
-            border-right: 1px dotted rgba($color: $foo-second-color, $alpha: 20%);
+            border-right: 1px dotted rgba($foo-second-color, 0.2);
         }
     }
 }

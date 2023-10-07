@@ -1,14 +1,19 @@
 export type Product = {
-	name: string;
-	imgUrl: string;
-	size: {
-		type: string;
-		value: number;
-	};
-	barcode: number;
-	company: string;
-	brand: string;
-	description: string;
-	price: number;
-	careType: Array<string> | null;
+    name: string;
+    imgUrl: string;
+    size: {
+        type: string;
+        value: number;
+    };
+    barcode: number;
+    company: string;
+    brand: string;
+    description: string;
+    price: number;
+    careType: Array<string> | null;
 };
+
+export type ProductWithQuantity = {
+    quantity: number;
+    id?: number;
+} & Product;

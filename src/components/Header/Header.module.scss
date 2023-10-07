@@ -11,19 +11,23 @@
         border-bottom: 1px solid rgba($foo-second-color, 0.2);
     }
 
+    &__container {
+        @include container;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
     &__connection {
         border-bottom: 1px solid rgba($foo-second-color, 0.2);
 
         &__container {
+            @include container;
+
             display: flex;
             align-items: center;
             min-height: 108px;
         }
-    }
-
-    &__container {
-        display: flex;
-        justify-content: space-between;
     }
 
     &__contact {

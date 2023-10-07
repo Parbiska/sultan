@@ -151,7 +151,7 @@
         "brand": "Brand",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare massa in arcu aliquam auctor. Donec ac magna eleifend, condimentum urna sit amet, ultrices leo. Cras bibendum sed nunc et volutpat. Cras urna purus, cursus eu suscipit id, pulvinar id augue. Cras nec metus vel elit interdum volutpat quis et orci. Nulla venenatis tortor vel sem elementum condimentum. Nullam sit amet ex eget sapien fermentum condimentum vel in dui.",
         "price": 5867,
-        "careType": [ "руки"]
+        "careType": ["руки"]
     },
     "12": {
         "name": "Гель для волос",

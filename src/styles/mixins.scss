@@ -1,5 +1,10 @@
 @import './variables.scss';
 
+@mixin container {
+    width: 1370px;
+    margin: 0 auto;
+}
+
 @mixin button {
     display: flex;
     align-items: center;
@@ -13,7 +18,7 @@
 
     &:hover {
         cursor: pointer;
-        background-color: #f0c369;
+        background-color: #f5c66a;
     }
 }
 

@@ -2,8 +2,8 @@
 @import '../../styles/mixins.scss';
 
 .cart {
-    width: 1370px;
-    margin: 0 auto;
+    @include container;
+
     padding: 40px 0 100px;
 
     &__title {
@@ -21,11 +21,11 @@
         &__product {
             margin-top: 50px;
             padding-top: 50px;
-            border-top: 1px dotted rgba($color: $foo-second-color, $alpha: 30%);
+            border-top: 1px dotted rgba($foo-second-color, 0.3);
 
             &:nth-last-child(1) {
                 padding-bottom: 50px;
-                border-bottom: 1px dotted rgba($color: $foo-second-color, $alpha: 30%);
+                border-bottom: 1px dotted rgba($foo-second-color, 0.3);
             }
         }
     }
@@ -65,7 +65,7 @@
     width: 100vw;
     height: 100vh;
 
-    background: rgba($color: #000, $alpha: 50%);
+    background: rgba(#000, 0.5);
 
     &__content {
         display: flex;

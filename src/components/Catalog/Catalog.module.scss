@@ -14,6 +14,8 @@
 }
 
 .catalog {
+    @include container;
+
     z-index: 1;
     padding: 40px 0 60px;
 
@@ -183,6 +185,10 @@
                         margin-left: 5px;
                         font-size: 10px;
                     }
+
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -226,5 +232,27 @@
         flex-wrap: wrap;
         gap: 21px;
         width: 1020px;
+    }
+
+    &__showSearchResult {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+
+        &__button {
+            @include button;
+
+            height: 59px;
+            font-size: 14px;
+            font-weight: 700;
+
+            &_show {
+                width: 169px;
+            }
+
+            &_remove {
+                width: 59px;
+            }
+        }
     }
 }

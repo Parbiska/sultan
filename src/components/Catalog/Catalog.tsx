@@ -7,7 +7,8 @@ import ProductItem from './ProductsItem/ProductItem';
 import { Product, ProductWithQuantity } from '../../types/types';
 import { decrease, increase, addToCart } from '../../store/cartSlice';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { toggleElementInArray } from '../../utils/helpers/arrayHelpers';
+import FilterList from './FIlterList/FilterList';
+import Preloader from '../Preloader/Preloader';
 
 type MapStateToProps = {
     products: Array<Product> | null;
@@ -22,7 +23,7 @@ type MapStateToProps = {
 };
 
 type MapDispatchToProps = {
-    requestProducts: any;
+    requestProducts: (searchSelectors: SearchSelectors) => void;
     setSearchSelectors: (selectros: {
         searchWords?: string;
         minPrice?: number;
@@ -59,17 +60,8 @@ const Catalog: React.FC<Props> = ({
     const [minPrice, setMinPrice] = useState<undefined | number>(undefined);
     const [maxPrice, setMaxPrice] = useState<undefined | number>(undefined);
 
-    const [companyFilterSearch, setCompanyFilterSearch] = useState('');
-    const [brandFilterSearch, setBrandFilterSearch] = useState('');
-
-    let companyFilter: string[] = [];
-    let brandFilter: string[] = [];
-
-    const brandsList: React.ReactElement[] = [];
-    const companiesList: React.ReactElement[] = [];
-
-    let sortProducts: Product[] = [];
-    let productsList: React.ReactElement[] = [];
+    const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
+    const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
 
     const setSortMethodClick = (sortMethod: SortMethod) => {
         setSortMethod(sortMethod);
@@ -80,6 +72,8 @@ const Catalog: React.FC<Props> = ({
         requestProducts(searchSelectors);
     }, [searchSelectors, requestProducts]);
 
+    let productsList: React.ReactElement[] = [];
+    let sortProducts: Product[] = [];
     if (products) {
         sortProducts = [...products];
 
@@ -130,57 +124,12 @@ const Catalog: React.FC<Props> = ({
         });
     }
 
-    if (companies) {
-        for (const company in companies) {
-            if (company.toLocaleLowerCase().includes(companyFilterSearch.toLocaleLowerCase())) {
-                companiesList.push(
-                    <li key={`c${company}`}>
-                        <input
-                            id={`company${company}`}
-                            type='checkbox'
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                                toggleElementInArray(companyFilter, company);
-                            }}
-                        />
-                        <label htmlFor={`company${company}`}>
-                            {company + ' '}
-                            <span>({companies[company]})</span>
-                        </label>
-                    </li>,
-                );
-            }
-        }
-    }
-
-    if (brands) {
-        for (const brand in brands) {
-            if (brand.toLocaleLowerCase().includes(brandFilterSearch.toLocaleLowerCase())) {
-                brandsList.push(
-                    <li key={`b${brand}`}>
-                        <input
-                            id={`brand${brand}`}
-                            type='checkbox'
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                                toggleElementInArray(brandFilter, brand);
-                            }}
-                        />
-                        <label htmlFor={`brand${brand}`}>
-                            {brand + ' '}
-                            <span>({brands[brand]})</span>
-                        </label>
-                    </li>,
-                );
-            }
-        }
-    }
-
     return (
         <section className={s.catalog}>
             <Navigation></Navigation>
             <div className={s.catalog__content}>
                 <div className={s.catalog__content__top}>
                     <h1 className={s.catalog__title}>Косметика и гигиена</h1>
-                    {productsList.length ? null : 'Товаров по запросу не обнаружено'}
                     <div className={s.catalog__sort}>
                         <b
                             onClick={() => {
@@ -255,39 +204,21 @@ const Catalog: React.FC<Props> = ({
                             Производитель
                         </h3>
 
-                        <div className={s.catalog__filter}>
-                            <form className={s.catalog__filter__search}>
-                                <input
-                                    value={companyFilterSearch}
-                                    type='text'
-                                    placeholder='Поиск...'
-                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                                        setCompanyFilterSearch(e.currentTarget.value);
-                                    }}
-                                />
-                            </form>
-
-                            <ul className={s.catalog__filter__list}>{companiesList}</ul>
-                        </div>
+                        <FilterList
+                            selectedItems={selectedCompanies}
+                            setSelectedItems={setSelectedCompanies}
+                            items={companies}
+                        ></FilterList>
 
                         <div className={s.catalog__filterDivider}></div>
 
                         <h3 className={s.catalog__filters__title}>Бренд</h3>
 
-                        <div className={s.catalog__filter}>
-                            <form onSubmit={() => {}} className={s.catalog__filter__search}>
-                                <input
-                                    value={brandFilterSearch}
-                                    type='text'
-                                    placeholder='Поиск...'
-                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                                        setBrandFilterSearch(e.currentTarget.value);
-                                    }}
-                                />
-                            </form>
-
-                            <ul className={s.catalog__filter__list}>{brandsList}</ul>
-                        </div>
+                        <FilterList
+                            selectedItems={selectedBrands}
+                            setSelectedItems={setSelectedBrands}
+                            items={brands}
+                        ></FilterList>
 
                         <div className={s.catalog__showSearchResult}>
                             <button
@@ -296,8 +227,8 @@ const Catalog: React.FC<Props> = ({
                                         minPrice,
                                         maxPrice,
                                         careType: '',
-                                        companies: companyFilter,
-                                        brands: brandFilter,
+                                        companies: selectedCompanies,
+                                        brands: selectedBrands,
                                     })
                                 }
                                 className={
@@ -307,15 +238,17 @@ const Catalog: React.FC<Props> = ({
                                 Показать
                             </button>
                             <button
-                                onClick={() =>
+                                onClick={() => {
                                     setSearchSelectors({
                                         minPrice: 0,
                                         maxPrice: 0,
                                         careType: '',
                                         companies: [],
                                         brands: [],
-                                    })
-                                }
+                                    });
+                                    setSelectedCompanies([]);
+                                    setSelectedBrands([]);
+                                }}
                                 className={
                                     s.catalog__showSearchResult__button +
                                     ' ' +
@@ -337,7 +270,15 @@ const Catalog: React.FC<Props> = ({
                             </button>
                         </div>
                     </div>
-                    <div className={s.catalog__products}>{productsList}</div>
+                    <div className={s.catalog__products}>
+                        {products === null ? (
+                            <Preloader></Preloader>
+                        ) : products.length === 0 ? (
+                            'Товаров по запросу не обнаружено'
+                        ) : (
+                            productsList
+                        )}
+                    </div>
                 </div>
             </div>
         </section>

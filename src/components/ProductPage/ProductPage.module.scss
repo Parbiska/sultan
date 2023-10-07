@@ -1,6 +1,212 @@
 @import '../../styles/mixins.scss';
 @import '../../styles/variables.scss';
 
-.productPage {
+.container {
     @include container;
+}
+
+.product {
+    display: flex;
+    margin-top: 65px;
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        width: 664px;
+        margin-right: 40px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        width: 628px;
+        padding-top: 35px;
+    }
+
+    &__availability {
+        font-size: 14px;
+        font-weight: 500;
+        color: #1FD85D;
+    }
+
+    &__title {
+        margin-top: 10px;
+
+        font-size: 30px;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 150%;
+        color: #111;
+
+        span {
+            font-weight: 800;
+        }
+    }
+
+    &__weight {
+        display: flex;
+        align-items: center;
+
+        margin-top: 10px;
+
+        font-size: 12px;
+        font-weight: 400;
+        color: $foo-second-color;
+
+        svg {
+            margin-right: 5px;
+            opacity: 0.23;
+        }
+    }
+
+    &__purchase {
+        display: flex;
+        align-items: center;
+        height: 59px;
+        margin-top: 25px;
+
+        &__price {
+            font-size: 30px;
+            font-weight: 800;
+            color: #111;
+        }
+
+        &__quantity {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+
+            span {
+                width: 20px;
+                margin: 0 19px;
+                text-align: center;
+            }
+
+            button {
+                width: 40px;
+                height: 30px;
+
+                font-size: 12px;
+                font-weight: 300;
+                line-height: 1.2;
+
+                background-color: #ffc6504d;
+                border: none;
+                border-radius: 100px;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #ecbc5c4d;
+                }
+
+                &:active {
+                    background-color: #e2a62d4d;
+                }
+            }
+        }
+
+        &__button {
+            @include button;
+            width: 184px;
+            height: 59px;
+            margin-left: 40px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            svg {
+                margin-left: 12px;
+            }
+        }
+
+    }
+
+    &__special {
+        display: flex;
+        margin-top: 20px;
+
+        &__el {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 77px;
+
+            border-radius: 10px;
+            box-shadow: 0 5px 70px -30px rgba(43, 28, 1, 4%);
+
+            &_share {
+                width: 77px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+
+            &_delivery {
+                box-sizing: border-box;
+                width: 316px;
+                margin-left: 10px;
+                padding: 20.5px 35.5px;
+
+                p {
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 150%;
+                    color: $foo-second-color;
+                    text-align: center;
+
+                    span {
+                        font-weight: 700;
+                    }
+                }
+            }
+
+            &_priceList {
+                width: 186px;
+                margin-left: 10px;
+
+                font-size: 14px;
+                font-weight: 700;
+                color: $foo-second-color;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+    }
+
+    &__description {
+        margin-top: 35px;
+
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 150%;
+        color: $foo-second-color;
+    }
+
+    &__divider {
+        width: 270px;
+        margin-top: 20px;
+        border-bottom: 1px dotted rgba($foo-second-color, 0.3);
+    }
+
+    &__characteristics {
+        margin-top: 15px;
+
+        &__el {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: 300;
+            color: $foo-second-color;
+
+            span {
+                font-weight: 500;
+                color: #111;
+            }
+        }
+    }
 }

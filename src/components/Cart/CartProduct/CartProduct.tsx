@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ProductWithQuantity } from '../../../types/types';
 import s from './CartProduct.module.scss';
 
@@ -49,7 +50,7 @@ const CartProduct: React.FC<Props> = ({
                 </div>
 
                 <div className={s.product__description}>
-                    <div className={s.product__description__weight}>
+                    <div className={s.product__weight}>
                         {size.type === 'гр' ? (
                             <svg
                                 width='20'
@@ -79,8 +80,10 @@ const CartProduct: React.FC<Props> = ({
                         )}
                         {`${size.value} ${size.type}`}
                     </div>
-                    <h2 className={s.product__description__title}>{title}</h2>
-                    <div className={s.product__description__text}>{croppedDescription}</div>
+                    <Link to={`/product/${barcode}`}>
+                        <h2 className={s.product__title}>{title}</h2>
+                    </Link>
+                    <div className={s.product__text}>{croppedDescription}</div>
                 </div>
 
                 <div className={s.product__purchase}>

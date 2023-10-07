@@ -24,6 +24,7 @@
     border-radius: 10px;
     box-shadow: 0 14px 39px -11px #0000000F;
 
+    transition: height .4s;
     animation: appearance 1s;
 
     &:hover {
@@ -58,6 +59,15 @@
         margin-top: 10px;
         font-weight: 500;
         line-height: 1.2;
+
+        a {
+            color: #000;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
 
         span {
             font-weight: 700;

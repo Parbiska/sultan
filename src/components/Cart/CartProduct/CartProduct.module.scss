@@ -25,35 +25,44 @@
         width: 480px;
         margin-right: 85px;
 
-        &__weight {
-            display: flex;
-            align-items: center;
+        a {
+            color: #000;
+            text-decoration: none;
 
-            font-size: 12px;
-            font-weight: 400;
-            color: $foo-second-color;
-
-            svg {
-                margin-right: 8px;
-                opacity: 0.23;
+            &:hover {
+                text-decoration: underline;
             }
         }
+    }
 
-        &__title {
-            margin-top: 9px;
-            font-size: 30px;
-            font-weight: 700;
-            line-height: 36px;
+    &__weight {
+        display: flex;
+        align-items: center;
+
+        font-size: 12px;
+        font-weight: 400;
+        color: $foo-second-color;
+
+        svg {
+            margin-right: 8px;
+            opacity: 0.23;
         }
+    }
 
-        &__text {
-            margin-top: 10px;
+    &__title {
+        margin-top: 9px;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 36px;
+    }
 
-            font-size: 12px;
-            font-weight: 300;
-            line-height: 18px;
-            color: $foo-second-color;
-        }
+    &__text {
+        margin-top: 10px;
+
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 18px;
+        color: $foo-second-color;
     }
 
     &__purchase {
@@ -92,7 +101,7 @@
                 line-height: 1.2;
                 color: #fff;
 
-                background-color: rgba(255, 198, 80, 30%);
+                background-color: $foo-light-color;
                 border: none;
                 border-radius: 100px;
 
@@ -101,7 +110,7 @@
                 }
 
                 &:active {
-                    background-color: rgba(250, 181, 43, 30%);
+                    background-color: rgba($foo-light-color, 0.45);
                 }
             }
         }

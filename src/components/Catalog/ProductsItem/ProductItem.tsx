@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Product } from '../../../types/types';
 import s from './ProductItem.module.scss';
 
@@ -66,8 +67,10 @@ const ProductItem: React.FC<Props> = ({
                 </div>
 
                 <h3 className={s.product__title}>
-                    <span>{company} </span>
-                    {name}
+                    <Link to={'/product/' + barcode}>
+                        <span>{company} </span>
+                        {name}
+                    </Link>
                 </h3>
 
                 <p className={s.product__info}>

@@ -17,7 +17,7 @@
     @include container;
 
     z-index: 1;
-    padding: 40px 0 60px;
+    padding-bottom: 60px;
 
     &__content {
         &__top {
@@ -84,7 +84,7 @@
                 font-weight: 300;
                 text-align: center;
 
-                background: #ffc6504d;
+                background: $foo-light-color;
             }
 
             input::-webkit-outer-spin-button,
@@ -141,54 +141,6 @@
                     top: -12px;
                     border: 5px solid transparent;
                     border-bottom: 8px solid #000;
-                }
-            }
-        }
-    }
-
-    &__filter {
-        margin-top: 15px;
-
-        &__search {
-            position: relative;
-
-            input {
-                @include searchInput;
-                width: 100%;
-                height: 59px;
-            }
-
-            button {
-                @include searchButton;
-            }
-        }
-
-        &__list {
-            margin-top: 15px;
-            list-style-type: none;
-
-            li {
-                display: flex;
-                align-items: center;
-
-                input {
-                    margin-right: 10px;
-                }
-
-                label {
-                    font-size: 14px;
-                    font-weight: 400;
-                    line-height: 150%;
-                    color: $foo-second-color;
-
-                    span {
-                        margin-left: 5px;
-                        font-size: 10px;
-                    }
-
-                    &:hover {
-                        cursor: pointer;
-                    }
                 }
             }
         }

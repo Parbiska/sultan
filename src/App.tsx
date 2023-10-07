@@ -11,7 +11,7 @@ const App = () => {
         <div className={s.app}>
             <Header />
 
-            <main>
+            {/* <main>
                 <Routes>
                     <Route path='/' element={<Navigate to='/catalog' />} />
                     <Route path='/catalog' element={<Catalog />} />
@@ -19,7 +19,7 @@ const App = () => {
                     <Route path='/product/*' element={<ProductPage></ProductPage>}></Route>
                     <Route path='*' element={<div>Error 404: Page not found</div>}></Route>
                 </Routes>
-            </main>
+            </main> */}
 
             <Footer />
         </div>

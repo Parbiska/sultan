@@ -8,8 +8,8 @@ export type SearchSelectors = {
     maxPrice: number | undefined;
     careType: string | undefined;
     searchWords: string | undefined;
-    companies: string[];
-    brands: string[];
+    companies: string[] | undefined;
+    brands: string[] | undefined;
 };
 
 type ThunkApiConfig = {
@@ -19,47 +19,49 @@ type ThunkApiConfig = {
     extra: {};
 };
 
-export const requestProducts = createAsyncThunk<string, {}, ThunkApiConfig>(
+export const requestProducts = createAsyncThunk<string, void, ThunkApiConfig>(
     'catalog/requestProducts',
     async (arg, { dispatch, getState }) => {
         const state = getState();
 
         const { minPrice, careType, maxPrice, searchWords, brands, companies } = state.catalog.searchSelectors;
 
+        dispatch(clearProductsList());
+
         // Эмитирование получения элементов с сервера
         setTimeout(() => {
             const response = productsData;
             let resultArray = [...Object.values(response)];
 
-            if (careType !== undefined) {
+            if (careType) {
                 resultArray = resultArray.filter((el) => el.careType.includes(careType));
             }
 
-            if (maxPrice !== undefined) {
+            if (maxPrice) {
                 resultArray = resultArray.filter((el) => el.price < maxPrice);
             }
 
-            if (minPrice !== undefined) {
+            if (minPrice) {
                 resultArray = resultArray.filter((el) => el.price > minPrice);
             }
 
-            if (companies.length) {
+            if (companies && companies.length) {
                 resultArray = resultArray.filter((el) => companies.includes(el.company));
             }
 
-            if (brands.length) {
+            if (brands && brands.length) {
                 resultArray = resultArray.filter((el) => brands.includes(el.brand));
             }
 
-            if (searchWords !== undefined) {
+            if (searchWords) {
                 resultArray = resultArray.filter((el) =>
-                    `${el.brand} ${el.company} ${el.description} ${el.name}`.toLocaleLowerCase().includes(searchWords),
+                    `${el.brand} ${el.company} ${el.name}`
+                        .toLocaleLowerCase()
+                        .includes(searchWords.toLocaleLowerCase()),
                 );
             }
-
-            dispatch(clearProductsList());
             dispatch(loadProducts(resultArray));
-        }, 100);
+        }, 500);
 
         return 'Products requested';
     },
@@ -77,7 +79,7 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-    products: null as Array<Product> | null,
+    products: null,
     companies: {},
     brands: {},
     searchSelectors: {
@@ -97,25 +99,24 @@ const catalogSlice = createSlice({
         loadProducts(state, action) {
             state.products = action.payload;
 
-            action.payload.forEach((el: Product) => {
-                if (!state.companies[el.company]) {
-                    state.companies[el.company] = 1;
-                } else {
-                    state.companies[el.company] += 1;
-                }
+            if (Object.keys(state.companies).length === 0) {
+                action.payload.forEach((el: Product) => {
+                    if (!state.companies[el.company]) {
+                        state.companies[el.company] = 1;
+                    } else {
+                        state.companies[el.company] += 1;
+                    }
 
-                if (!state.brands[el.brand]) {
-                    state.brands[el.brand] = 1;
-                } else {
-                    state.brands[el.brand] += 1;
-                }
-            });
+                    if (!state.brands[el.brand]) {
+                        state.brands[el.brand] = 1;
+                    } else {
+                        state.brands[el.brand] += 1;
+                    }
+                });
+            }
         },
         clearProductsList(state) {
-            state.products = [];
-
-            state.companies = {};
-            state.brands = {};
+            state.products = null;
         },
         setSearchSelectors(state, action) {
             const selectors = action.payload;

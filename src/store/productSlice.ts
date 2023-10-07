@@ -10,23 +10,19 @@ type ThunkApiConfig = {
     extra: {};
 };
 
-export const requestProduct = createAsyncThunk<string, { barcode: number }, ThunkApiConfig>(
+export const requestProduct = createAsyncThunk<string, number, ThunkApiConfig>(
     'product/requestProduct',
-    async (
-        arg = {
-            barcode: 0,
-        },
-        { dispatch, getState },
-    ) => {
+    async (barcode = 0, { dispatch, getState }) => {
         setTimeout(() => {
             let product;
-            const productInCart = getState().cart.products.find((el) => el.barcode === arg.barcode);
+            const productInCart = getState().cart.products.find((el) => el.barcode === barcode);
+            console.log(productInCart);
 
             if (productInCart) {
                 product = productInCart;
             } else {
                 product = {
-                    ...Object.values(productsData).find((el) => el.barcode === arg.barcode),
+                    ...Object.values(productsData).find((el) => el.barcode === barcode),
                     quantity: 0,
                 };
             }

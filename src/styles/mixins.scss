@@ -3,6 +3,11 @@
 @mixin container {
     width: 1370px;
     margin: 0 auto;
+
+    @media (max-width: 1400px) {
+        width: auto;
+
+    }
 }
 
 @mixin button {

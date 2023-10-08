@@ -1,7 +1,20 @@
+@import './styles/mixins.scss';
+@import './styles/variables.scss';
+
 .app {
-    height: 100vh;
+    min-height: 100vh;
+
+    @media (max-width: 1023px) {
+
+        padding-top: 191px;
+    }
 
     main {
         min-height: 27vh;
     }
+
+}
+
+.errorPage {
+    text-align: center;
 }

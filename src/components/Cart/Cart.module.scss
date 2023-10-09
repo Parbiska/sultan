@@ -117,3 +117,33 @@
         color: $foo-second-color;
     }
 }
+
+@media(max-width: 1399px) {
+    .cart {
+        padding: 0 20px 50px;
+    }
+
+    .finishWindow {
+        &__content {
+            text-align: center;
+
+            height: 400px;
+        }
+    }
+}
+
+@media(max-width: 424px) {
+    .cart {
+        &__purchase {
+            margin-top: 25px;
+            flex-direction: column-reverse;
+
+            &__button {
+                margin-top: 25px;
+                width: 290px;
+                height: 80px;
+            }
+        }
+    }
+
+}

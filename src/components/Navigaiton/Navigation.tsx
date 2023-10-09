@@ -1,5 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import s from './Navigation.module.scss';
+import { useResize } from '../../utils/useResize';
+import BackButton from './BackButton/BackButton';
 
 type Props = {
     productName?: string;
@@ -7,6 +9,7 @@ type Props = {
 
 const Navigation: React.FC<Props> = ({ productName }) => {
     const location = useLocation();
+    const { width } = useResize();
     let linkName = 'Текущая страница';
 
     switch (location.pathname) {
@@ -18,6 +21,9 @@ const Navigation: React.FC<Props> = ({ productName }) => {
             break;
         default:
             if (productName) linkName = productName;
+    }
+    if (width < 1024) {
+        return <BackButton></BackButton>;
     }
 
     return (

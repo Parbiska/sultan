@@ -4,13 +4,12 @@
 .app {
     min-height: 100vh;
 
-    @media (max-width: 1023px) {
-
-        padding-top: 191px;
-    }
-
     main {
         min-height: 27vh;
+    }
+
+    @media (max-width: 1023px) {
+        padding-top: 191px;
     }
 
 }

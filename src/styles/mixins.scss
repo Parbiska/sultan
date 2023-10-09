@@ -4,7 +4,7 @@
     width: 1370px;
     margin: 0 auto;
 
-    @media (max-width: 1400px) {
+    @media (max-width: 1399px) {
         width: auto;
 
     }
@@ -23,7 +23,13 @@
 
     &:hover {
         cursor: pointer;
-        background-color: #f5c66a;
+    }
+
+    @media (max-width: 767px) {
+        &:hover {
+            cursor: pointer;
+            background-color: none;
+        }
     }
 }
 

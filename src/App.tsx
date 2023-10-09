@@ -16,9 +16,9 @@ const App = () => {
             <main>
                 <Routes>
                     <Route path='/' element={<Navigate to='/catalog' />} />
-                    {/* <Route path='/catalog' element={<Catalog />} />
+                    <Route path='/catalog' element={<Catalog />} />
                     <Route path='/cart' element={<Cart />}></Route>
-                    <Route path='/product/*' element={<ProductPage></ProductPage>}></Route> */}
+                    <Route path='/product/*' element={<ProductPage></ProductPage>}></Route>
                     <Route path='*' element={<div className={s.errorPage}>Error 404: Page not found</div>}></Route>
                 </Routes>
             </main>

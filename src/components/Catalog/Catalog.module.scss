@@ -13,6 +13,18 @@
     }
 }
 
+@keyframes filtersAppearance {
+    0% {
+        transform: translateY(-400px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 .catalog {
     @include container;
 
@@ -206,5 +218,103 @@
                 width: 59px;
             }
         }
+    }
+}
+
+@media (max-width: 1399px) {
+    .catalog {
+        padding: 0 20px 50px;
+
+        &__wrapper {
+            justify-content: space-around;
+        }
+
+        &__products {
+            width: 760px;
+            justify-content: space-around;
+        }
+
+        &__filters {
+            margin-right: 10px;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .catalog {
+        &__products {
+            width: 500px;
+        }
+
+    }
+}
+
+@media (max-width: 599px) {
+    .catalog {
+        padding: 0 15px 50px;
+
+        &__content {
+            &__top {
+                flex-direction: column;
+                align-items: start;
+            }
+        }
+
+        &__title {
+            font-size: 20px;
+        }
+
+        &__products {
+            width: auto;
+        }
+
+        &__filters {
+            animation: filtersAppearance 1s;
+
+            &__title {
+                &:first-child {
+                    margin-top: 0;
+                }
+
+            }
+
+            &_hidden {
+                display: none;
+            }
+
+        }
+
+        &__mobileFilters {
+            &__hidden {
+                overflow: hidden;
+
+            }
+
+            &__button {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+                background: none;
+                border: none;
+            }
+
+            &__arrow {
+                margin-left: 43px;
+                width: 32px;
+                height: 32px;
+                background-color: $foo-light-color;
+                border-radius: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &_active {}
+            }
+        }
+
+        &__sort {
+            margin-top: 25px;
+        }
+
     }
 }

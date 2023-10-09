@@ -21,10 +21,13 @@ export const requestProduct = createAsyncThunk<string, number, ThunkApiConfig>(
             if (productInCart) {
                 product = productInCart;
             } else {
-                product = {
-                    ...Object.values(productsData).find((el) => el.barcode === barcode),
-                    quantity: 0,
-                };
+                const newProduct = Object.values(productsData).find((el) => el.barcode === barcode);
+                if (newProduct) {
+                    product = {
+                        ...newProduct,
+                        quantity: 0,
+                    };
+                }
             }
 
             dispatch(setProduct(product));

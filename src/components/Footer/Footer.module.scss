@@ -17,8 +17,8 @@
         @include container;
 
         display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     &__info {
@@ -191,7 +191,7 @@
     }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1399px) {
     .footer {
         padding: 20px 20px 0;
 
@@ -221,9 +221,9 @@
 
 @media (max-width: 767px) {
     .footer {
-        padding: 20px 60px 60px;
         display: flex;
         justify-content: center;
+        padding: 20px 60px 60px;
 
         &__content {}
 

@@ -1,16 +1,21 @@
 {
   "files": {
-    "main.css": "/sultan/static/css/main.073c9b0a.css",
-    "main.js": "/sultan/static/js/main.320bcb7a.js",
-    "static/js/787.65e37804.chunk.js": "/sultan/static/js/787.65e37804.chunk.js",
-    "static/media/logo.svg": "/sultan/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/sultan/static/css/main.18868656.css",
+    "main.js": "/sultan/static/js/main.31b3f350.js",
+    "static/media/logo.svg": "/sultan/static/media/logo.1097df71ed697614d09783d166a788cc.svg",
+    "static/media/logo_white.svg": "/sultan/static/media/logo_white.18600ba6450c54512a99f98a551a8556.svg",
+    "static/media/mastercard.svg": "/sultan/static/media/mastercard.46064a4abf3d9461bc2390fd36978057.svg",
+    "static/media/whatsapp.svg": "/sultan/static/media/whatsapp.8dd9c4b666126f1aa83a305438a78052.svg",
+    "static/media/visa.svg": "/sultan/static/media/visa.ca757cf5e3269ed663a8b6c00ca7b5d2.svg",
+    "static/media/telegram.svg": "/sultan/static/media/telegram.dcb86d5e3c8bccf9788892956ba6f9fe.svg",
     "index.html": "/sultan/index.html",
-    "main.073c9b0a.css.map": "/sultan/static/css/main.073c9b0a.css.map",
-    "main.320bcb7a.js.map": "/sultan/static/js/main.320bcb7a.js.map",
-    "787.65e37804.chunk.js.map": "/sultan/static/js/787.65e37804.chunk.js.map"
+    "static/media/download.svg": "/sultan/static/media/download.e7871a54009d32c25a9d6309214fe536.svg",
+    "static/media/arrow-right.svg": "/sultan/static/media/arrow-right.35ab94e2f8817f324bd31c2293385fa8.svg",
+    "main.18868656.css.map": "/sultan/static/css/main.18868656.css.map",
+    "main.31b3f350.js.map": "/sultan/static/js/main.31b3f350.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.320bcb7a.js"
+    "static/css/main.18868656.css",
+    "static/js/main.31b3f350.js"
   ]
 }

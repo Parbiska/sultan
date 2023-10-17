@@ -230,8 +230,8 @@
         }
 
         &__products {
-            width: 760px;
             justify-content: space-around;
+            width: 760px;
         }
 
         &__filters {
@@ -293,22 +293,25 @@
             &__button {
                 display: flex;
                 align-items: center;
+
                 margin-top: 20px;
+
                 background: none;
                 border: none;
             }
 
             &__arrow {
-                margin-left: 43px;
-                width: 32px;
-                height: 32px;
-                background-color: $foo-light-color;
-                border-radius: 100px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
-                &_active {}
+                width: 32px;
+                height: 32px;
+                margin-left: 43px;
+
+                background-color: $foo-light-color;
+                border-radius: 100px;
+
             }
         }
 

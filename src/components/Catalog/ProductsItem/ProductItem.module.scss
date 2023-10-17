@@ -80,8 +80,8 @@
 
     &__purchase {
         position: absolute;
-
         bottom: 20px;
+
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -136,8 +136,8 @@
 @media (max-width: 767px) {
     .product {
         width: 290px;
-        padding: 42px 15px 29px;
         height: 490px;
+        padding: 42px 15px 29px;
 
         &__img {
             height: 194px;
@@ -155,7 +155,6 @@
             width: 260px;
 
             &__price {
-
                 font-size: 16px;
             }
         }

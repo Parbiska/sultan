@@ -125,9 +125,8 @@
 
     .finishWindow {
         &__content {
-            text-align: center;
-
             height: 400px;
+            text-align: center;
         }
     }
 }
@@ -135,13 +134,13 @@
 @media(max-width: 424px) {
     .cart {
         &__purchase {
-            margin-top: 25px;
             flex-direction: column-reverse;
+            margin-top: 25px;
 
             &__button {
-                margin-top: 25px;
                 width: 290px;
                 height: 80px;
+                margin-top: 25px;
             }
         }
     }

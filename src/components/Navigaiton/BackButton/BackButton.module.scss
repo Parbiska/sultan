@@ -2,21 +2,25 @@
 @import '../../../styles/variables.scss';
 
 .back {
-    margin-top: 20px;
     display: flex;
     align-items: center;
-    text-decoration: none;
+
+    margin-top: 20px;
+
     color: $foo-second-color;
+    text-decoration: none;
 
     &__button {
-        background-color: $foo-light-color;
-        width: 32px;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+
+        width: 32px;
+        height: 32px;
+
+        background-color: $foo-light-color;
         border: none;
         border-radius: 50px;
-        height: 32px;
     }
 
     span {

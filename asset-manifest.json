@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sultan/static/css/main.18868656.css",
+    "main.css": "/sultan/static/css/main.09c0c8b2.css",
     "main.js": "/sultan/static/js/main.31b3f350.js",
     "static/media/logo.svg": "/sultan/static/media/logo.1097df71ed697614d09783d166a788cc.svg",
     "static/media/logo_white.svg": "/sultan/static/media/logo_white.18600ba6450c54512a99f98a551a8556.svg",
@@ -11,11 +11,11 @@
     "index.html": "/sultan/index.html",
     "static/media/download.svg": "/sultan/static/media/download.e7871a54009d32c25a9d6309214fe536.svg",
     "static/media/arrow-right.svg": "/sultan/static/media/arrow-right.35ab94e2f8817f324bd31c2293385fa8.svg",
-    "main.18868656.css.map": "/sultan/static/css/main.18868656.css.map",
+    "main.09c0c8b2.css.map": "/sultan/static/css/main.09c0c8b2.css.map",
     "main.31b3f350.js.map": "/sultan/static/js/main.31b3f350.js.map"
   },
   "entrypoints": [
-    "static/css/main.18868656.css",
+    "static/css/main.09c0c8b2.css",
     "static/js/main.31b3f350.js"
   ]
 }
